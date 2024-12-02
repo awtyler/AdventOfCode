@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+cp -rf AdventOfCodeTemplate $1/
+cp AdventOfCodeTemplate/.gitignore $1/
+cd $1
+./rename.swift AdventOfCodeTemplate $1
