@@ -15,7 +15,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("Day 1").font(.largeTitle)
+            Text("Day X").font(.largeTitle)
             Toggle(isOn: $useSampleData) {
                 Text("Use Sample Data")
             }.onChange(of: useSampleData) { oldValue, newValue in
@@ -25,6 +25,7 @@ struct ContentView: View {
                     Input.inputType = .real
                 }
             }
+            
 
             if executing {
                 ProgressView().progressViewStyle(.circular)
@@ -89,11 +90,15 @@ struct ContentView: View {
     }
     
     func executePart1() async -> Int {
+        Input.executionPart = .part1
+        
         <# Part 1 Logic Here #>
         return 0
     }
     
     func executePart2() async -> Int {
+        Input.executionPart = .part2
+        
         <# Part 2 Logic Here #>
         return 0
     }

@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AdventOfCodeTemplate
+//  Day2
 //
 //  Created by Aaron Tyler on 11/3/23.
 //
@@ -15,7 +15,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("Day 1").font(.largeTitle)
+            Text("Day 2").font(.largeTitle)
             Toggle(isOn: $useSampleData) {
                 Text("Use Sample Data")
             }.onChange(of: useSampleData) { oldValue, newValue in
@@ -25,6 +25,7 @@ struct ContentView: View {
                     Input.inputType = .real
                 }
             }
+            
 
             if executing {
                 ProgressView().progressViewStyle(.circular)
@@ -89,12 +90,30 @@ struct ContentView: View {
     }
     
     func executePart1() async -> Int {
-        <# Part 1 Logic Here #>
-        return 0
+        let reports = Input.getInput()
+        
+        var sum = 0
+        for report in reports {
+            if report.isSafe() {
+                sum += 1
+            }
+        }
+        
+        return sum
     }
     
     func executePart2() async -> Int {
-        <# Part 2 Logic Here #>
+        let reports = Input.getInput()
+        
+        var sum = 0
+        for report in reports {
+            if report.isSafe(.part2) {
+                sum += 1
+            }
+        }
+        
+        return sum
+
         return 0
     }
 }

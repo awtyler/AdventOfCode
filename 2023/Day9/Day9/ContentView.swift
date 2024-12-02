@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AdventOfCodeTemplate
+//  Day9
 //
 //  Created by Aaron Tyler on 11/3/23.
 //
@@ -15,7 +15,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("Day 1").font(.largeTitle)
+            Text("Day 8").font(.largeTitle)
             Toggle(isOn: $useSampleData) {
                 Text("Use Sample Data")
             }.onChange(of: useSampleData) { oldValue, newValue in
@@ -25,6 +25,7 @@ struct ContentView: View {
                     Input.inputType = .real
                 }
             }
+            
 
             if executing {
                 ProgressView().progressViewStyle(.circular)

@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AdventOfCodeTemplate
+//  Day1
 //
 //  Created by Aaron Tyler on 11/3/23.
 //
@@ -25,6 +25,7 @@ struct ContentView: View {
                     Input.inputType = .real
                 }
             }
+            
 
             if executing {
                 ProgressView().progressViewStyle(.circular)
@@ -88,14 +89,53 @@ struct ContentView: View {
 
     }
     
+    func getDistance(_ num1: Int, _ num2: Int) -> Int {
+        if num1 > num2 {
+            return num1 - num2
+        }
+        return num2 - num1
+    }
+    
+    func getSimilarityScores(_ list: [Int]) -> Dictionary<Int, Int> {
+        var similarities = Dictionary<Int, Int>()
+
+        for comp in list {
+            similarities[comp, default: 0] += comp
+        }
+        return similarities
+    }
+    
     func executePart1() async -> Int {
-        <# Part 1 Logic Here #>
-        return 0
+        let pairs = Input.getInput();
+
+        var lefts = pairs.map(\.left)
+        var rights = pairs.map(\.right)
+
+        lefts.sort()
+        rights.sort()
+        
+        var sum = 0
+        for i in 0..<lefts.count {
+            sum += getDistance(lefts[i], rights[i])
+        }
+        
+        return sum
     }
     
     func executePart2() async -> Int {
-        <# Part 2 Logic Here #>
-        return 0
+        let pairs = Input.getInput();
+
+        var lefts = pairs.map(\.left)
+        var rights = pairs.map(\.right)
+        
+        let similarities = getSimilarityScores(rights)
+        
+        var sum = 0
+        for num in lefts {
+            sum += similarities[num, default: 0]
+        }
+        
+        return sum
     }
 }
 
