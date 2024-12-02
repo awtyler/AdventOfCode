@@ -90,17 +90,19 @@ struct ContentView: View {
     }
     
     func executePart1() async -> Int {
-        Input.executionPart = .part1
+        var answer = 0
         
         <# Part 1 Logic Here #>
-        return 0
+                
+        return answer
     }
     
     func executePart2() async -> Int {
-        Input.executionPart = .part2
+        var answer = 0
         
-        <# Part 2 Logic Here #>
-        return 0
+//        <# Part 2 Logic Here #>
+        
+        return answer
     }
 }
 
