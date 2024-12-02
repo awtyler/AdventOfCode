@@ -36,7 +36,9 @@ struct ContentView: View {
             
             Text("Part 1").font(.largeTitle)
             Button(action: {
-                execute(.part1)
+                Task {
+                    await execute(.part1)
+                }
             }, label: {
                 Text("Execute Part 1")
             })
@@ -46,7 +48,9 @@ struct ContentView: View {
 
             Text("Part 2").font(.largeTitle)
             Button(action: {
-                execute(.part2)
+                Task {
+                    await execute(.part2)
+                }
             }, label: {
                 Text("Execute Part 2")
             })
@@ -57,24 +61,38 @@ struct ContentView: View {
         .padding()
     }
 
-    @MainActor
     func updateText(_ text: String, part: ExecutionPart = Input.executionPart) {
-        switch(part) {
-        case .part1: part1Message = text
-        case .part2: part2Message = text
+        Task { @MainActor in
+            switch(part) {
+            case .part1: part1Message = text
+            case .part2: part2Message = text
+            }
         }
     }
     
-    @MainActor
     func updateExecuting(_ value: Bool) {
-        executing = value
+        Task { @MainActor in
+            executing = value
+        }
     }
     
-    func execute(_ part: ExecutionPart) {
-        Task {
-            Input.executionPart = part
-            await updateExecuting(true)
-            await updateText("Executing Part \(part == .part1 ? "1" : "2") with \(Input.inputType == .sample ? "sample" : "real") input data...")
+    func toTimeDisplay(seconds: Int) -> String {
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        let seconds = (seconds % 3600) % 60
+        print("HMS: \(hours) \(minutes) \(seconds)")
+        return String(format: "%02d:%02d:%02d", arguments: [hours, minutes, seconds])
+    }
+    
+    nonisolated func execute(_ part: ExecutionPart) async {
+        print("STARTING...")
+        let startTime = Date.now
+        
+        Input.executionPart = part
+        await updateExecuting(true)
+        await updateText("Executing Part \(part == .part1 ? "1" : "2") with \(Input.inputType == .sample ? "sample" : "real") input data...")
+
+        Task.detached(priority: .background) {
 
             var result = 0
 
@@ -83,10 +101,14 @@ struct ContentView: View {
             case .part2: result = await executePart2()
             }
 
-            await updateText("Part \(part == .part1 ? "1" : "2") Result: \(result)")
-            await updateExecuting(false)
-        }
+            let endTime = Date.now
+            let diff = Int(endTime.timeIntervalSince1970 - startTime.timeIntervalSince1970)
 
+            await updateText("Part \(part == .part1 ? "1" : "2")\nResult: \(result)\nTime: \(toTimeDisplay(seconds: diff))")
+            await updateExecuting(false)
+            
+            print("COMPLETED IN \(toTimeDisplay(seconds: diff)) SECONDS")
+        }
     }
     
     func executePart1() async -> Int {
@@ -113,8 +135,6 @@ struct ContentView: View {
         }
         
         return sum
-
-        return 0
     }
 }
 

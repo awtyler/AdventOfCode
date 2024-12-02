@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93843D702CFE6D2A0083AD6D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D6F2CFE6D2A0083AD6D /* String+Extension.swift */; };
 		939D53052CFE026C00846FE0 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D53042CFE026C00846FE0 /* Report.swift */; };
 		DFB2F9C42AF53C8700E26FDC /* Day2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C32AF53C8700E26FDC /* Day2App.swift */; };
 		DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C52AF53C8700E26FDC /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93843D6F2CFE6D2A0083AD6D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		939D53042CFE026C00846FE0 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		DFB2F9C02AF53C8700E26FDC /* Day2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB2F9C32AF53C8700E26FDC /* Day2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2App.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				DFB2F9C32AF53C8700E26FDC /* Day2App.swift */,
+				93843D6F2CFE6D2A0083AD6D /* String+Extension.swift */,
 				DFB2F9C52AF53C8700E26FDC /* ContentView.swift */,
 				DFB2F9D12AF53CD000E26FDC /* Input.swift */,
 				939D53042CFE026C00846FE0 /* Report.swift */,
@@ -146,6 +149,7 @@
 				DFB2F9D22AF53CD000E26FDC /* Input.swift in Sources */,
 				DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */,
 				DFB2F9C42AF53C8700E26FDC /* Day2App.swift in Sources */,
+				93843D702CFE6D2A0083AD6D /* String+Extension.swift in Sources */,
 				939D53052CFE026C00846FE0 /* Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

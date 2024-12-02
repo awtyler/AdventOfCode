@@ -21,7 +21,8 @@ enum Input {
         if inputType == .sample {
             return input_sample
         }
-        return input_real
+//        return input_real
+        return (input_real + "\n") * 100
     }
     
     static func getInput() -> [Report] {
