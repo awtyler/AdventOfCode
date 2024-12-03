@@ -21,16 +21,15 @@ enum Input {
         if inputType == .sample {
             return input_sample
         }
-//        return input_real
-        return (input_real + "\n") * 100
+        return input_real
     }
     
     static func getInput() -> [Report] {
-        let lines = input.split(separator: "\n").map { String($0) }
+        let lines = input.linesToStringArray()
 
         var reports = [Report]()
         for line in lines {
-            reports.append(Report(levels: line.split(separator: " ").map { Int(String($0)) ?? 0 }))
+            reports.append(Report(levels: line.tokensToIntArray()))
         }
         
         return reports

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93843D732CFE8A760083AD6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D722CFE8A760083AD6D /* Extensions.swift */; };
 		DFB2F9C42AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C32AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift */; };
 		DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C52AF53C8700E26FDC /* ContentView.swift */; };
 		DFB2F9C82AF53C8A00E26FDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93843D722CFE8A760083AD6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DFB2F9C02AF53C8700E26FDC /* AdventOfCodeTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdventOfCodeTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB2F9C32AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCodeTemplateApp.swift; sourceTree = "<group>"; };
 		DFB2F9C52AF53C8700E26FDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				DFB2F9C32AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift */,
+				93843D722CFE8A760083AD6D /* Extensions.swift */,
 				DFB2F9C52AF53C8700E26FDC /* ContentView.swift */,
 				DFB2F9D12AF53CD000E26FDC /* Input.swift */,
 				DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 				DFB2F9D22AF53CD000E26FDC /* Input.swift in Sources */,
 				DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */,
 				DFB2F9C42AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift in Sources */,
+				93843D732CFE8A760083AD6D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +275,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AdventOfCodeTemplate/Preview Content\"";
-				DEVELOPMENT_TEAM = 8XZPE27325;
+				DEVELOPMENT_TEAM = LQZ9HX53KV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -285,7 +289,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifththird.adventOfCode2022.AdventOfCodeTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhindon.adventOfCode2023.AdventOfCodeTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -301,7 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AdventOfCodeTemplate/Preview Content\"";
-				DEVELOPMENT_TEAM = 8XZPE27325;
+				DEVELOPMENT_TEAM = LQZ9HX53KV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -315,7 +319,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifththird.adventOfCode2022.AdventOfCodeTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhindon.adventOfCode2023.AdventOfCodeTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

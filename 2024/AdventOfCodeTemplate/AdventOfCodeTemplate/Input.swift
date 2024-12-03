@@ -26,10 +26,11 @@ enum Input {
     
     // USE CMD-OPT-E to select multiple placeholders with the same name
     static func getInput() -> [<# Input Return Type #>] {
-        let lines = input.split(separator: "\n").map { String($0) }
+        let lines = input.linesToStringArray()
 
         var combined: [<#T## Input Return Type ##Type#>] = []
         for line in lines {
+            let tokens = line.tokensToStringArray()
             <# Line Parsing Here #>
         }
         

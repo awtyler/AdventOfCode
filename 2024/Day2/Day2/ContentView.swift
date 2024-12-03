@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var part1Message: String = "Ready to Execute..."
     @State var part2Message: String = "Ready to Execute..."
+    @State var executionTimeMessage: String = ""
     @State var useSampleData: Bool = true
     @State var executing: Bool = false
 
@@ -57,6 +58,7 @@ struct ContentView: View {
             Text(part2Message)
             
             Spacer()
+            Text(executionTimeMessage)
         }.disabled(executing)
         .padding()
     }
@@ -87,6 +89,10 @@ struct ContentView: View {
     nonisolated func execute(_ part: ExecutionPart) async {
         print("STARTING...")
         let startTime = Date.now
+
+        Task { @MainActor in
+            executionTimeMessage = ""
+        }
         
         Input.executionPart = part
         await updateExecuting(true)
@@ -104,10 +110,12 @@ struct ContentView: View {
             let endTime = Date.now
             let diff = Int(endTime.timeIntervalSince1970 - startTime.timeIntervalSince1970)
 
-            await updateText("Part \(part == .part1 ? "1" : "2")\nResult: \(result)\nTime: \(toTimeDisplay(seconds: diff))")
+            await updateText("Result: \(result)")
             await updateExecuting(false)
             
-            print("COMPLETED IN \(toTimeDisplay(seconds: diff)) SECONDS")
+            Task { @MainActor in
+                executionTimeMessage = "Execution time: \(toTimeDisplay(seconds: diff))"
+            }
         }
     }
     
@@ -126,14 +134,14 @@ struct ContentView: View {
     
     func executePart2() async -> Int {
         let reports = Input.getInput()
-        
         var sum = 0
+
         for report in reports {
             if report.isSafe(.part2) {
                 sum += 1
             }
         }
-        
+
         return sum
     }
 }
