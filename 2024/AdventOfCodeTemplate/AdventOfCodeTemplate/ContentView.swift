@@ -16,7 +16,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("Day 2").font(.largeTitle)
+            Text("Day <# Day Number #>").font(.largeTitle)
             Toggle(isOn: $useSampleData) {
                 Text("Use Sample Data")
             }.onChange(of: useSampleData) { oldValue, newValue in
