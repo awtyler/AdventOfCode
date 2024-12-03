@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AdventOfCodeTemplate
+//  Day10
 //
 //  Created by Aaron Tyler on 11/3/23.
 //
@@ -82,12 +82,10 @@ struct ContentView: View {
         let hours = seconds / 3600
         let minutes = (seconds % 3600) / 60
         let seconds = (seconds % 3600) % 60
-        print("HMS: \(hours) \(minutes) \(seconds)")
         return String(format: "%02d:%02d:%02d", arguments: [hours, minutes, seconds])
     }
     
     nonisolated func execute(_ part: ExecutionPart) async {
-        print("STARTING...")
         let startTime = Date.now
 
         Task { @MainActor in
@@ -122,7 +120,9 @@ struct ContentView: View {
     func executePart1() async -> Int {
         var answer = 0
         
-        <# Part 1 Logic Here #>
+        let map = Input.getInput()
+        
+        answer = map.findMaxNum() ?? -1
                 
         return answer
     }
@@ -130,7 +130,8 @@ struct ContentView: View {
     func executePart2() async -> Int {
         var answer = 0
         
-//        <# Part 2 Logic Here #>
+        let map = Input.getInput()
+        map.findMaxNum()
         
         return answer
     }

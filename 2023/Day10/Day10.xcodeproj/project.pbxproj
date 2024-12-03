@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		93843D732CFE8A760083AD6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D722CFE8A760083AD6D /* Extensions.swift */; };
-		DFB2F9C42AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C32AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift */; };
+		93843D752CFE8E790083AD6D /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D742CFE8E790083AD6D /* Space.swift */; };
+		93843D772CFE91E40083AD6D /* SpaceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D762CFE91E40083AD6D /* SpaceMap.swift */; };
+		DFB2F9C42AF53C8700E26FDC /* Day10App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C32AF53C8700E26FDC /* Day10App.swift */; };
 		DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C52AF53C8700E26FDC /* ContentView.swift */; };
 		DFB2F9C82AF53C8A00E26FDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */; };
 		DFB2F9CB2AF53C8A00E26FDC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB2F9CA2AF53C8A00E26FDC /* Preview Assets.xcassets */; };
@@ -17,8 +19,10 @@
 
 /* Begin PBXFileReference section */
 		93843D722CFE8A760083AD6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		DFB2F9C02AF53C8700E26FDC /* AdventOfCodeTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdventOfCodeTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFB2F9C32AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCodeTemplateApp.swift; sourceTree = "<group>"; };
+		93843D742CFE8E790083AD6D /* Space.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
+		93843D762CFE91E40083AD6D /* SpaceMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceMap.swift; sourceTree = "<group>"; };
+		DFB2F9C02AF53C8700E26FDC /* Day10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day10.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFB2F9C32AF53C8700E26FDC /* Day10App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day10App.swift; sourceTree = "<group>"; };
 		DFB2F9C52AF53C8700E26FDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFB2F9CA2AF53C8A00E26FDC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -39,7 +43,7 @@
 		DFB2F9B72AF53C8700E26FDC = {
 			isa = PBXGroup;
 			children = (
-				DFB2F9C22AF53C8700E26FDC /* AdventOfCodeTemplate */,
+				DFB2F9C22AF53C8700E26FDC /* Day10 */,
 				DFB2F9C12AF53C8700E26FDC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,22 +51,24 @@
 		DFB2F9C12AF53C8700E26FDC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DFB2F9C02AF53C8700E26FDC /* AdventOfCodeTemplate.app */,
+				DFB2F9C02AF53C8700E26FDC /* Day10.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DFB2F9C22AF53C8700E26FDC /* AdventOfCodeTemplate */ = {
+		DFB2F9C22AF53C8700E26FDC /* Day10 */ = {
 			isa = PBXGroup;
 			children = (
-				DFB2F9C32AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift */,
+				DFB2F9C32AF53C8700E26FDC /* Day10App.swift */,
 				93843D722CFE8A760083AD6D /* Extensions.swift */,
 				DFB2F9C52AF53C8700E26FDC /* ContentView.swift */,
 				DFB2F9D12AF53CD000E26FDC /* Input.swift */,
+				93843D742CFE8E790083AD6D /* Space.swift */,
+				93843D762CFE91E40083AD6D /* SpaceMap.swift */,
 				DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */,
 				DFB2F9C92AF53C8A00E26FDC /* Preview Content */,
 			);
-			path = AdventOfCodeTemplate;
+			path = Day10;
 			sourceTree = "<group>";
 		};
 		DFB2F9C92AF53C8A00E26FDC /* Preview Content */ = {
@@ -76,9 +82,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DFB2F9BF2AF53C8700E26FDC /* AdventOfCodeTemplate */ = {
+		DFB2F9BF2AF53C8700E26FDC /* Day10 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DFB2F9CE2AF53C8A00E26FDC /* Build configuration list for PBXNativeTarget "AdventOfCodeTemplate" */;
+			buildConfigurationList = DFB2F9CE2AF53C8A00E26FDC /* Build configuration list for PBXNativeTarget "Day10" */;
 			buildPhases = (
 				DFB2F9BC2AF53C8700E26FDC /* Sources */,
 				DFB2F9BD2AF53C8700E26FDC /* Frameworks */,
@@ -88,9 +94,9 @@
 			);
 			dependencies = (
 			);
-			name = AdventOfCodeTemplate;
-			productName = AdventOfCodeTemplate;
-			productReference = DFB2F9C02AF53C8700E26FDC /* AdventOfCodeTemplate.app */;
+			name = Day10;
+			productName = Day10;
+			productReference = DFB2F9C02AF53C8700E26FDC /* Day10.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DFB2F9BB2AF53C8700E26FDC /* Build configuration list for PBXProject "AdventOfCodeTemplate" */;
+			buildConfigurationList = DFB2F9BB2AF53C8700E26FDC /* Build configuration list for PBXProject "Day10" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -121,7 +127,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DFB2F9BF2AF53C8700E26FDC /* AdventOfCodeTemplate */,
+				DFB2F9BF2AF53C8700E26FDC /* Day10 */,
 			);
 		};
 /* End PBXProject section */
@@ -143,9 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93843D752CFE8E790083AD6D /* Space.swift in Sources */,
 				DFB2F9D22AF53CD000E26FDC /* Input.swift in Sources */,
 				DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */,
-				DFB2F9C42AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift in Sources */,
+				93843D772CFE91E40083AD6D /* SpaceMap.swift in Sources */,
+				DFB2F9C42AF53C8700E26FDC /* Day10App.swift in Sources */,
 				93843D732CFE8A760083AD6D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +282,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AdventOfCodeTemplate/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Day10/Preview Content\"";
 				DEVELOPMENT_TEAM = LQZ9HX53KV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -289,7 +297,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rhindon.adventOfCode2023.AdventOfCodeTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhindon.adventOfCode2023.Day10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -304,7 +312,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AdventOfCodeTemplate/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Day10/Preview Content\"";
 				DEVELOPMENT_TEAM = LQZ9HX53KV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -319,7 +327,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rhindon.adventOfCode2023.AdventOfCodeTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhindon.adventOfCode2023.Day10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -330,7 +338,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DFB2F9BB2AF53C8700E26FDC /* Build configuration list for PBXProject "AdventOfCodeTemplate" */ = {
+		DFB2F9BB2AF53C8700E26FDC /* Build configuration list for PBXProject "Day10" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DFB2F9CC2AF53C8A00E26FDC /* Debug */,
@@ -339,7 +347,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DFB2F9CE2AF53C8A00E26FDC /* Build configuration list for PBXNativeTarget "AdventOfCodeTemplate" */ = {
+		DFB2F9CE2AF53C8A00E26FDC /* Build configuration list for PBXNativeTarget "Day10" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DFB2F9CF2AF53C8A00E26FDC /* Debug */,
