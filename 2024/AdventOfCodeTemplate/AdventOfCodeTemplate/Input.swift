@@ -24,14 +24,13 @@ enum Input {
         return input_real
     }
     
-    // USE CMD-OPT-E to select multiple placeholders with the same name
-    static func getInput() -> [<# Input Return Type #>] {
+    static func getInput() -> [String] {
         let lines = input.linesToStringArray()
 
-        var combined: [<#T## Input Return Type ##Type#>] = []
+        var combined: [String] = []
         for line in lines {
             let tokens = line.tokensToStringArray()
-            <# Line Parsing Here #>
+//            <# Line Parsing Here #>
         }
         
         return combined

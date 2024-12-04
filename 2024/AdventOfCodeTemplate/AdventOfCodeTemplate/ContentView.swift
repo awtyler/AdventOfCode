@@ -122,7 +122,7 @@ struct ContentView: View {
     func executePart1() async -> Int {
         var answer = 0
         
-        <# Part 1 Logic Here #>
+//        <# Part 1 Logic Here #>
                 
         return answer
     }
