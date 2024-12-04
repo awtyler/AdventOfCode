@@ -37,6 +37,19 @@ enum SpaceShape: String, CaseIterable {
     case start = "S"
     case ground = "."
     
+    var pretty: String {
+        switch self {
+        case .northSouth: return "┃"
+        case .westEast: return "━"
+        case .northWest: return "┛"
+        case .southEast: return "┏"
+        case .northEast: return "┗"
+        case .southWest: return "┓"
+        case .start: return "⦿"
+        case .ground: return "◌"
+        }
+    }
+    
     var exits: (Exit?, Exit?) {
         let exit1: Exit?
         let exit2: Exit?
@@ -67,11 +80,13 @@ enum SpaceShape: String, CaseIterable {
     }
 }
 
-struct Space: Equatable {
+class Space: Equatable {
     var id: String
     var shape: SpaceShape
     var x: Int = 0
     var y: Int = 0
+    var inLoop: Bool = false
+    var isInside: Bool = false
 
     var isStartSpace: Bool {
         return id == "S"
@@ -82,7 +97,7 @@ struct Space: Equatable {
     
     init(_ id: String) {
         self.id = id
-        shape = SpaceShape(rawValue: id)!;
+        shape = SpaceShape(rawValue: id)!
         let exits = shape.exits
         exit1 = exits.0
         exit2 = exits.1

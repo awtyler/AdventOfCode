@@ -8,9 +8,11 @@
 import Foundation
 
 class SpaceMap {
+    private(set) var allSpaces: [Space]
     private(set) var spaces: [[Space]]
     
     private(set) var loopSpaces: [Space] = []
+    private(set) var insideSpaces: [Space] = []
     
     private(set) var start: Space!
     let xMax: Int
@@ -19,9 +21,12 @@ class SpaceMap {
     init(mapString: String) {
         let lines = mapString.linesToStringArray()
         var buildSpaces: [[Space]] = []
+        allSpaces = []
         
         for line in lines {
-            buildSpaces.append(line.charactersToStringArray().map { Space($0) })
+            let space = line.charactersToStringArray().map { Space($0) }
+            buildSpaces.append(space)
+            allSpaces.append(contentsOf: space)
         }
         
         spaces = buildSpaces
@@ -85,7 +90,11 @@ class SpaceMap {
         
         var route1Space = spaceAt(coords: start.getNeighborCoords(start.exit1, xMax: xMax, yMax: yMax))
         var route2Space = spaceAt(coords: start.getNeighborCoords(start.exit2, xMax: xMax, yMax: yMax))
-        
+        loopSpaces.append(route1Space!)
+        loopSpaces.append(route2Space!)
+        route1Space?.inLoop = true
+        route2Space?.inLoop = true
+
         /*
 
          ..F7.
@@ -111,7 +120,10 @@ class SpaceMap {
 
             loopSpaces.append(route1Space)
             loopSpaces.append(route2Space)
-
+            
+            route1Space.inLoop = true
+            route2Space.inLoop = true
+            
             count += 1
             
             if route1Space == route2Space {
@@ -120,5 +132,101 @@ class SpaceMap {
         }
         
         return count
+    }
+    
+    func getInsidePointCount() -> Int {
+        guard !loopSpaces.isEmpty else {
+            print("Loop Spaces not set!")
+            return -1
+        }
+        
+        self.insideSpaces = []
+        var count = 0
+        
+        /*
+         ...........
+         .S-------7.
+         .|F-----7|.
+         .||OOOOO||.
+         .||OOOOO||.
+         .|L-7OF-J|.
+         .|II|O|II|.
+         .L--JOL--J.
+         .....O.....
+         */
+        
+        for y in 0..<yMax {
+            
+            var add = false
+            let ySpaces = loopSpaces.filter({ $0.y == y}).map(\.x)
+            var spaceIndex = 0
+            for x in 0..<xMax {
+                
+                let space = spaceAt(coords: (x, y))!
+                
+                if space.inLoop {
+                    add = !add
+                    print("Flipped: ", x, y, add)
+                }
+
+                if add && space.shape == .ground {
+                    insideSpaces.append(space)
+                    space.isInside = true
+                }
+            }
+        }
+        return allSpaces.count(where: (\.isInside))
+    }
+    
+    func getShoelaceArea() -> Int {
+        var area = 0
+        
+        func getNodeBit(_ a: Space, _ b: Space) -> Int {
+            return (a.x * b.y) - (b.x * a.y)
+        }
+        
+        var prevExit = start.exit1
+        
+        var prevSpace = spaceAt(coords: start.getNeighborCoords(start.exit1, xMax: xMax, yMax: yMax))
+        var done = false
+        while !done {
+            // Move both sides to the next space in the route
+            let (routeSpace, prevExit) = findNext(from: prevSpace, entrance: prevExit?.opposite)
+
+            guard let routeSpace else {
+                return area
+            }
+
+            area += getNodeBit(prevSpace!, routeSpace)
+            
+            if routeSpace == start {
+                done = true
+            }
+            prevSpace = routeSpace
+        }
+        
+        return area
+    }
+    
+    func printLoop() {
+        print("+" + ("-" * xMax) + "-+")
+        
+        for y in 0...yMax {
+            print("|", terminator: "")
+            for x in 0...xMax {
+                let space = spaceAt(x: x, y: y)
+                var char = " "
+                if space.inLoop { char = space.shape.pretty }
+                if space.isStartSpace { char = SpaceShape.start.pretty }
+                if space.isInside { char = SpaceShape.ground.pretty }
+
+                print(char, terminator: "")
+            }
+            print("|", terminator: "")
+            print("   ")
+        }
+        print("+" + ("-" * xMax) + "-+")
+
+        
     }
 }

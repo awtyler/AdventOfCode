@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Day10
+//  Day4
 //
 //  Created by Aaron Tyler on 11/3/23.
 //
@@ -16,7 +16,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("Day 2").font(.largeTitle)
+            Text("Day 4").font(.largeTitle)
             Toggle(isOn: $useSampleData) {
                 Text("Use Sample Data")
             }.onChange(of: useSampleData) { oldValue, newValue in
@@ -82,10 +82,12 @@ struct ContentView: View {
         let hours = seconds / 3600
         let minutes = (seconds % 3600) / 60
         let seconds = (seconds % 3600) % 60
+        print("HMS: \(hours) \(minutes) \(seconds)")
         return String(format: "%02d:%02d:%02d", arguments: [hours, minutes, seconds])
     }
     
     nonisolated func execute(_ part: ExecutionPart) async {
+        print("STARTING...")
         let startTime = Date.now
 
         Task { @MainActor in
@@ -120,23 +122,27 @@ struct ContentView: View {
     func executePart1() async -> Int {
         var answer = 0
         
-        let map = Input.getInput()
+        let grid = Input.getInput()
         
-        answer = map.findMaxNum() ?? -1
+        let word = "XMAS"
+        for space in grid.allSpaces {
+            answer += grid.wordCount(atSpace: space, word: word)
+        }
                 
         return answer
     }
     
     func executePart2() async -> Int {
-        let map = Input.getInput()
-        map.findMaxNum()
-//        let insideCount = map.getInsidePointCount()
+        var answer = 0
         
-        let insideCount = map.getShoelaceArea()
+        let grid = Input.getInput()
         
-        map.printLoop()
-
-        return insideCount
+        let word = "MAS"
+        for space in grid.allSpaces {
+            answer += grid.includesXMas(atSpace: space) ? 1 : 0
+        }
+                
+        return answer
     }
 }
 

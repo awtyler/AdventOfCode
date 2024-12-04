@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DFB2F9C42AF53C8700E26FDC /* Day9App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C32AF53C8700E26FDC /* Day9App.swift */; };
+		93843D732CFE8A760083AD6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D722CFE8A760083AD6D /* Extensions.swift */; };
+		93843D7F2D009AC20083AD6D /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D7E2D009AC20083AD6D /* Grid.swift */; };
+		93843D812D009B0F0083AD6D /* GridSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D802D009B0F0083AD6D /* GridSpace.swift */; };
+		93843D8B2D00A0D10083AD6D /* WordSearchGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D8A2D00A0D10083AD6D /* WordSearchGrid.swift */; };
+		DFB2F9C42AF53C8700E26FDC /* Day4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C32AF53C8700E26FDC /* Day4App.swift */; };
 		DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C52AF53C8700E26FDC /* ContentView.swift */; };
 		DFB2F9C82AF53C8A00E26FDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */; };
 		DFB2F9CB2AF53C8A00E26FDC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB2F9CA2AF53C8A00E26FDC /* Preview Assets.xcassets */; };
@@ -15,8 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DFB2F9C02AF53C8700E26FDC /* Day9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day9.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFB2F9C32AF53C8700E26FDC /* Day9App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day9App.swift; sourceTree = "<group>"; };
+		93843D722CFE8A760083AD6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		93843D7E2D009AC20083AD6D /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		93843D802D009B0F0083AD6D /* GridSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSpace.swift; sourceTree = "<group>"; };
+		93843D8A2D00A0D10083AD6D /* WordSearchGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchGrid.swift; sourceTree = "<group>"; };
+		DFB2F9C02AF53C8700E26FDC /* Day4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFB2F9C32AF53C8700E26FDC /* Day4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day4App.swift; sourceTree = "<group>"; };
 		DFB2F9C52AF53C8700E26FDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFB2F9CA2AF53C8A00E26FDC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -34,10 +42,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93843D872D009F4B0083AD6D /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				93843D7E2D009AC20083AD6D /* Grid.swift */,
+				93843D802D009B0F0083AD6D /* GridSpace.swift */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
 		DFB2F9B72AF53C8700E26FDC = {
 			isa = PBXGroup;
 			children = (
-				DFB2F9C22AF53C8700E26FDC /* Day9 */,
+				DFB2F9C22AF53C8700E26FDC /* Day4 */,
 				DFB2F9C12AF53C8700E26FDC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,21 +62,24 @@
 		DFB2F9C12AF53C8700E26FDC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DFB2F9C02AF53C8700E26FDC /* Day9.app */,
+				DFB2F9C02AF53C8700E26FDC /* Day4.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DFB2F9C22AF53C8700E26FDC /* Day9 */ = {
+		DFB2F9C22AF53C8700E26FDC /* Day4 */ = {
 			isa = PBXGroup;
 			children = (
-				DFB2F9C32AF53C8700E26FDC /* Day9App.swift */,
+				93843D872D009F4B0083AD6D /* Grid */,
+				DFB2F9C32AF53C8700E26FDC /* Day4App.swift */,
+				93843D722CFE8A760083AD6D /* Extensions.swift */,
 				DFB2F9C52AF53C8700E26FDC /* ContentView.swift */,
+				93843D8A2D00A0D10083AD6D /* WordSearchGrid.swift */,
 				DFB2F9D12AF53CD000E26FDC /* Input.swift */,
 				DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */,
 				DFB2F9C92AF53C8A00E26FDC /* Preview Content */,
 			);
-			path = Day9;
+			path = Day4;
 			sourceTree = "<group>";
 		};
 		DFB2F9C92AF53C8A00E26FDC /* Preview Content */ = {
@@ -73,9 +93,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DFB2F9BF2AF53C8700E26FDC /* Day9 */ = {
+		DFB2F9BF2AF53C8700E26FDC /* Day4 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DFB2F9CE2AF53C8A00E26FDC /* Build configuration list for PBXNativeTarget "Day9" */;
+			buildConfigurationList = DFB2F9CE2AF53C8A00E26FDC /* Build configuration list for PBXNativeTarget "Day4" */;
 			buildPhases = (
 				DFB2F9BC2AF53C8700E26FDC /* Sources */,
 				DFB2F9BD2AF53C8700E26FDC /* Frameworks */,
@@ -85,9 +105,9 @@
 			);
 			dependencies = (
 			);
-			name = Day9;
-			productName = Day9;
-			productReference = DFB2F9C02AF53C8700E26FDC /* Day9.app */;
+			name = Day4;
+			productName = Day4;
+			productReference = DFB2F9C02AF53C8700E26FDC /* Day4.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DFB2F9BB2AF53C8700E26FDC /* Build configuration list for PBXProject "Day9" */;
+			buildConfigurationList = DFB2F9BB2AF53C8700E26FDC /* Build configuration list for PBXProject "Day4" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +138,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DFB2F9BF2AF53C8700E26FDC /* Day9 */,
+				DFB2F9BF2AF53C8700E26FDC /* Day4 */,
 			);
 		};
 /* End PBXProject section */
@@ -140,9 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93843D8B2D00A0D10083AD6D /* WordSearchGrid.swift in Sources */,
+				93843D812D009B0F0083AD6D /* GridSpace.swift in Sources */,
 				DFB2F9D22AF53CD000E26FDC /* Input.swift in Sources */,
 				DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */,
-				DFB2F9C42AF53C8700E26FDC /* Day9App.swift in Sources */,
+				DFB2F9C42AF53C8700E26FDC /* Day4App.swift in Sources */,
+				93843D7F2D009AC20083AD6D /* Grid.swift in Sources */,
+				93843D732CFE8A760083AD6D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,8 +294,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Day9/Preview Content\"";
-				DEVELOPMENT_TEAM = 8XZPE27325;
+				DEVELOPMENT_ASSET_PATHS = "\"Day4/Preview Content\"";
+				DEVELOPMENT_TEAM = LQZ9HX53KV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -285,7 +309,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifththird.adventOfCode2022.Day9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhindon.adventOfCode2023.Day4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -300,8 +324,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Day9/Preview Content\"";
-				DEVELOPMENT_TEAM = 8XZPE27325;
+				DEVELOPMENT_ASSET_PATHS = "\"Day4/Preview Content\"";
+				DEVELOPMENT_TEAM = LQZ9HX53KV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -315,7 +339,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifththird.adventOfCode2022.Day9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhindon.adventOfCode2023.Day4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -326,7 +350,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DFB2F9BB2AF53C8700E26FDC /* Build configuration list for PBXProject "Day9" */ = {
+		DFB2F9BB2AF53C8700E26FDC /* Build configuration list for PBXProject "Day4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DFB2F9CC2AF53C8A00E26FDC /* Debug */,
@@ -335,7 +359,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DFB2F9CE2AF53C8A00E26FDC /* Build configuration list for PBXNativeTarget "Day9" */ = {
+		DFB2F9CE2AF53C8A00E26FDC /* Build configuration list for PBXNativeTarget "Day4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DFB2F9CF2AF53C8A00E26FDC /* Debug */,

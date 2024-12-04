@@ -31,12 +31,42 @@ enum Input {
     }
     
     static let input_sample = """
-    ..F7.
-    .FJ|.
-    SJ.L7
-    |F--J
-    LJ...
+    ...........
+    .S-------7.
+    .|F-----7|.
+    .||.....||.
+    .||.....||.
+    .|L-7.F-J|.
+    .|..|.|..|.
+    .L--J.L--J.
+    ...........
     """
+    
+/*
+    +----------+
+    |          |
+    | S *******|
+    |  ********|
+    | **     **|
+    | **     **|
+    | **** ****|
+    | *  * *  *|
+    | **** ****|
+    +----------+
+*/
+    
+//    static let input_sample = """
+//    FF7FSF7F7F7F7F7F---7
+//    L|LJ||||||||||||F--J
+//    FL-7LJLJ||||||LJL-77
+//    F--JF--7||LJLJ.F7FJ-
+//    L---JF-JLJ....FJLJJ7
+//    |F|F-JF---7...L7L|7|
+//    |FFJF7L7F-JF7..L---7
+//    7-L-JL7||F7|L7F-7F7|
+//    L.L7LFJ|||||FJL7||LJ
+//    L7JLJL-JLJLJL--JLJ.L
+//    """
     
     static let input_real = """
     J7F--7-|7FJ.FF|.FJ77.FJFL7FFF-J7F7-J-77F|-|7LL7.|FJ7F|JF|.FLF7-FF--7.-J.7-FF7F-77.LJFJ-FF.F|-F----77F77.JF|F|7F.|7-FJ-F777..F-7|77F7FFFF7FJ7

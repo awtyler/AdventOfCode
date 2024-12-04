@@ -10,12 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @State var part1Message: String = "Ready to Execute..."
     @State var part2Message: String = "Ready to Execute..."
+    @State var executionTimeMessage: String = ""
     @State var useSampleData: Bool = true
     @State var executing: Bool = false
 
     var body: some View {
         VStack {
-            Text("Day <#Day Number#>").font(.largeTitle)
+            Text("Day 8").font(.largeTitle)
             Toggle(isOn: $useSampleData) {
                 Text("Use Sample Data")
             }.onChange(of: useSampleData) { oldValue, newValue in
@@ -36,7 +37,9 @@ struct ContentView: View {
             
             Text("Part 1").font(.largeTitle)
             Button(action: {
-                execute(.part1)
+                Task {
+                    await execute(.part1)
+                }
             }, label: {
                 Text("Execute Part 1")
             })
@@ -46,35 +49,56 @@ struct ContentView: View {
 
             Text("Part 2").font(.largeTitle)
             Button(action: {
-                execute(.part2)
+                Task {
+                    await execute(.part2)
+                }
             }, label: {
                 Text("Execute Part 2")
             })
             Text(part2Message)
             
             Spacer()
+            Text(executionTimeMessage)
         }.disabled(executing)
         .padding()
     }
 
-    @MainActor
     func updateText(_ text: String, part: ExecutionPart = Input.executionPart) {
-        switch(part) {
-        case .part1: part1Message = text
-        case .part2: part2Message = text
+        Task { @MainActor in
+            switch(part) {
+            case .part1: part1Message = text
+            case .part2: part2Message = text
+            }
         }
     }
     
-    @MainActor
     func updateExecuting(_ value: Bool) {
-        executing = value
+        Task { @MainActor in
+            executing = value
+        }
     }
     
-    func execute(_ part: ExecutionPart) {
-        Task {
-            Input.executionPart = part
-            await updateExecuting(true)
-            await updateText("Executing Part \(part == .part1 ? "1" : "2") with \(Input.inputType == .sample ? "sample" : "real") input data...")
+    func toTimeDisplay(seconds: Int) -> String {
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        let seconds = (seconds % 3600) % 60
+        print("HMS: \(hours) \(minutes) \(seconds)")
+        return String(format: "%02d:%02d:%02d", arguments: [hours, minutes, seconds])
+    }
+    
+    nonisolated func execute(_ part: ExecutionPart) async {
+        print("STARTING...")
+        let startTime = Date.now
+
+        Task { @MainActor in
+            executionTimeMessage = ""
+        }
+        
+        Input.executionPart = part
+        await updateExecuting(true)
+        await updateText("Executing Part \(part == .part1 ? "1" : "2") with \(Input.inputType == .sample ? "sample" : "real") input data...")
+
+        Task.detached(priority: .background) {
 
             var result = 0
 
@@ -83,20 +107,26 @@ struct ContentView: View {
             case .part2: result = await executePart2()
             }
 
-            await updateText("Part \(part == .part1 ? "1" : "2") Result: \(result)")
-            await updateExecuting(false)
-        }
+            let endTime = Date.now
+            let diff = Int(endTime.timeIntervalSince1970 - startTime.timeIntervalSince1970)
 
+            await updateText("Result: \(result)")
+            await updateExecuting(false)
+            
+            Task { @MainActor in
+                executionTimeMessage = "Execution time: \(toTimeDisplay(seconds: diff))"
+            }
+        }
     }
     
     func executePart1() async -> Int {
-        <# Part 1 Logic Here #>
-        return 0
+        let input = Input.getInput()
+        return input.countSteps()
     }
     
     func executePart2() async -> Int {
-        <# Part 2 Logic Here #>
-        return 0
+        let input = Input.getInput()
+        return input.countSimultaneousSteps()
     }
 }
 
