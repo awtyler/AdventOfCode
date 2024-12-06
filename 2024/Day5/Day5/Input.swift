@@ -24,21 +24,15 @@ enum Input {
         return input_real
     }
     
-    static func getInput() -> (rules: [PageRule], updates: [ReportUpdates]) {
+    static func getInput() -> (rules: [PageRule], updates: [ReportUpdate]) {
         let lines = input.linesToStringArray()
 
-        let rules: [PageRule] = []
-        let updates: [ReportUpdates] = []
-        
-        let doRules = true
+        var rules: [PageRule] = []
+        var updates: [ReportUpdate] = []
         
         for line in lines {
             let tokens = line.tokensToStringArray()
-            if line == "" {
-                doRules = false
-                continue
-            }
-            if doRules {
+            if line.contains("|") {
                 rules.append(PageRule(line))
             } else {
                 updates.append(ReportUpdate(line))

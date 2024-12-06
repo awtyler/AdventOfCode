@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AdventOfCodeTemplate
+//  Day5
 //
 //  Created by Aaron Tyler on 11/3/23.
 //
@@ -12,6 +12,7 @@ struct ContentView: View {
     @State var part2Message: String = "Ready to Execute..."
     @State var executionTimeMessage: String = ""
     @State var useSampleData: Bool = true
+    @State var tryRandomSearch: Bool = false
     @State var executing: Bool = false
 
     var body: some View {
@@ -27,6 +28,9 @@ struct ContentView: View {
                 }
             }
             
+            Toggle(isOn: $tryRandomSearch) {
+                Text("Try Random Search")
+            }
 
             if executing {
                 ProgressView().progressViewStyle(.circular)
@@ -82,7 +86,6 @@ struct ContentView: View {
         let hours = seconds / 3600
         let minutes = (seconds % 3600) / 60
         let seconds = (seconds % 3600) % 60
-        print("HMS: \(hours) \(minutes) \(seconds)")
         return String(format: "%02d:%02d:%02d", arguments: [hours, minutes, seconds])
     }
     
@@ -102,12 +105,11 @@ struct ContentView: View {
 
             var result = 0
 
-            print("BEFORE 1")
             switch(part) {
             case .part1: result = await executePart1()
             case .part2: result = await executePart2()
             }
-            print("AFTER 1")
+
             let endTime = Date.now
             let diff = Int(endTime.timeIntervalSince1970 - startTime.timeIntervalSince1970)
 
@@ -123,18 +125,49 @@ struct ContentView: View {
     func executePart1() async -> Int {
         var answer = 0
 
-        print("BEFORE")
         let (rules, updates) = Input.getInput()
-               
-        print("Counts: ", rules.count, updates.count)
-
+        
+        for update in updates {
+            if update.isValid(forRules: rules) {
+                answer += update.getMiddle()
+            }
+        }
+        
         return answer
     }
     
     func executePart2() async -> Int {
+        var startTime = Date.now
         var answer = 0
+
+        var (rules, updates) = Input.getInput()
         
-//        <# Part 2 Logic Here #>
+        var validCount = 0
+        var invalidCount = 0
+        for update in updates {
+            if update.isValid(forRules: rules) {
+                validCount += 1
+            } else {
+                invalidCount += 1
+            }
+        }
+
+        
+        if tryRandomSearch {
+            // Reorder the Updates to be shortest to longest, so we can get as many as possible
+            updates.sort(by: { $0.pages.count < $1.pages.count})
+        }
+        
+        var count = 0
+        for update in updates {
+            if !update.isValid(forRules: rules) {
+                count += 1
+                update.fixOrder(forRules: rules, doRandomly: tryRandomSearch)
+                let seconds = abs(Int(startTime.timeIntervalSinceNow))
+                print("\(toTimeDisplay(seconds: seconds)) - Found correct order [\(count)/\(invalidCount)] for: ", update.pages)
+                answer += update.getMiddle()
+            }
+        }
         
         return answer
     }
