@@ -10,6 +10,8 @@
 		93843D732CFE8A760083AD6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D722CFE8A760083AD6D /* Extensions.swift */; };
 		93843D842D009F0D0083AD6D /* GridSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D832D009F0D0083AD6D /* GridSpace.swift */; };
 		93843D852D009F0D0083AD6D /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843D822D009F0D0083AD6D /* Grid.swift */; };
+		938637E42D08FD6900A0E6FC /* SampleInput.txt in Resources */ = {isa = PBXBuildFile; fileRef = 938637E32D08FD6900A0E6FC /* SampleInput.txt */; };
+		938637E62D08FD6E00A0E6FC /* RealInput.txt in Resources */ = {isa = PBXBuildFile; fileRef = 938637E52D08FD6E00A0E6FC /* RealInput.txt */; };
 		DFB2F9C42AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C32AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift */; };
 		DFB2F9C62AF53C8700E26FDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2F9C52AF53C8700E26FDC /* ContentView.swift */; };
 		DFB2F9C82AF53C8A00E26FDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		93843D822D009F0D0083AD6D /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		93843D832D009F0D0083AD6D /* GridSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSpace.swift; sourceTree = "<group>"; };
 		93843D902D00B2680083AD6D /* AdventOfCodeTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdventOfCodeTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		938637E32D08FD6900A0E6FC /* SampleInput.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleInput.txt; sourceTree = "<group>"; };
+		938637E52D08FD6E00A0E6FC /* RealInput.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = RealInput.txt; sourceTree = "<group>"; };
 		DFB2F9C02AF53C8700E26FDC /* AdventOfCodeTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdventOfCodeTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB2F9C32AF53C8700E26FDC /* AdventOfCodeTemplateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCodeTemplateApp.swift; sourceTree = "<group>"; };
 		DFB2F9C52AF53C8700E26FDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				93843D722CFE8A760083AD6D /* Extensions.swift */,
 				DFB2F9C52AF53C8700E26FDC /* ContentView.swift */,
 				DFB2F9D12AF53CD000E26FDC /* Input.swift */,
+				938637E32D08FD6900A0E6FC /* SampleInput.txt */,
+				938637E52D08FD6E00A0E6FC /* RealInput.txt */,
 				DFB2F9C72AF53C8A00E26FDC /* Assets.xcassets */,
 				DFB2F9C92AF53C8A00E26FDC /* Preview Content */,
 			);
@@ -206,6 +212,8 @@
 			files = (
 				DFB2F9CB2AF53C8A00E26FDC /* Preview Assets.xcassets in Resources */,
 				DFB2F9C82AF53C8A00E26FDC /* Assets.xcassets in Resources */,
+				938637E42D08FD6900A0E6FC /* SampleInput.txt in Resources */,
+				938637E62D08FD6E00A0E6FC /* RealInput.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

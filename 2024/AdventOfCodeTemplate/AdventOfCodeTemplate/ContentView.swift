@@ -122,12 +122,9 @@ struct ContentView: View {
     
     func executePart1() async -> Int {
         var answer = 0
-
-        print("BEFORE")
-        let (rules, updates) = Input.getInput()
-               
-        print("Counts: ", rules.count, updates.count)
-
+        
+        <# Part 1 Logic Here #>
+        
         return answer
     }
     

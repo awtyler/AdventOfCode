@@ -17,7 +17,7 @@ class Grid {
     let xCount: Int
     let yCount: Int
     
-    init(mapString: String) {
+    required init(mapString: String) {
         let lines = mapString.linesToStringArray()
         var buildSpaces: [[GridSpace]] = []
         allSpaces = []
