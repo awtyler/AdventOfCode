@@ -9,15 +9,15 @@ import Foundation
 
 typealias Coordinates = (x: Int, y: Int)
 
-enum Direction: CaseIterable {
-    case north
-    case south
+enum Direction: Int, CaseIterable {
+    case north = 0
+    case northEast
     case east
+    case southEast
+    case south
+    case southWest
     case west
     case northWest
-    case northEast
-    case southWest
-    case southEast
     
     var opposite: Direction {
         switch self {
@@ -32,12 +32,24 @@ enum Direction: CaseIterable {
         case .southEast: return .northWest
         }
     }
+    
+    func nextDirection(handDirection: HandDirection, includeDiagonals: Bool = false) -> Direction {
+        var distance = (includeDiagonals ? 1 : 2) * (handDirection.rawValue)
+        distance = (distance + self.rawValue + Direction.allCases.count) % Direction.allCases.count
+        return Direction(rawValue: distance)!
+    }
+}
+
+enum HandDirection: Int, CaseIterable {
+    case left = -1
+    case right = 1
 }
 
 protocol GridSpaceProtocol: Equatable, AnyObject {
     var id: String { get set }
     var x: Int { get set }
     var y: Int { get set }
+    var printChar: String { get }
     init()
     init (_ id: String)
     func updateCoordinates(_ coords: (Int, Int))
@@ -50,6 +62,8 @@ extension GridSpaceProtocol {
         self.id = id
     }
 
+    var printChar: String { self.id }
+    
     func updateCoordinates(_ coords: (Int, Int)) {
         self.x = coords.0
         self.y = coords.1

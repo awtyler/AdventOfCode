@@ -123,21 +123,42 @@ struct ContentView: View {
     func executePart1() async -> Int {
         var answer = 0
         
-        let input: [String] = Input.getInput()
-        for line in input {
-            print(line)
-        }
+        let grid: GuardGrid = Input.getGridInput()
+        grid.updateSpaces()
+        grid.moveAll()
+        grid.printGrid()
         
-        
-        return answer
+        return grid.visitedCount
     }
     
     func executePart2() async -> Int {
         var answer = 0
+
+        let grid: GuardGrid = Input.getGridInput()
+        grid.updateSpaces()
+        grid.moveAll()
+        grid.printGrid()
+
+        var turnLocs: [GuardGridSpace] = []
         
-//        <# Part 2 Logic Here #>
+        for space in grid.allSpaces {
+            if let facing = space.faceDirection, space.hasBeenVisited {
+                let nextDir = facing.nextDirection(handDirection: .right)
+                let nextNeighbor = grid.getNeighbor(forSpace: space, direction: facing)
+                let rightNeighbor = grid.getNeighbor(forSpace: space, direction: nextDir)
+                
+                if let nextNeighbor, let rightNeighbor,
+                    space.isStartSpace != true
+                    && rightNeighbor.faceDirection == nextDir
+                    && nextNeighbor.hasBeenVisited ?? false {
+                    turnLocs.append(nextNeighbor)
+                }
+            }
+        }
         
-        return answer
+        print(turnLocs.map {"\($0.x),\($0.y)" })
+        
+        return turnLocs.count
     }
 }
 

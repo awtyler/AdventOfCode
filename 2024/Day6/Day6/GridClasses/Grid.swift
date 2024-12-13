@@ -125,9 +125,8 @@ extension GridProtocol {
             print("|", terminator: "")
             for x in 0...xMax {
                 let space = spaceAt(x: x, y: y)
-                var char = space.id
 
-                print(char, terminator: "")
+                print(space.printChar, terminator: "")
             }
             print("|", terminator: "")
             print("   ")
